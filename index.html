@@ -137,40 +137,14 @@
         <iframe id="iframe-monitoring" class="dashboard-frame" src="https://app.powerbi.com/reportEmbed?reportId=92cf2271-700c-445a-9f62-44b68b06f449&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false"></iframe>
 
         <div id="kpi-reports" style="display: none; margin-top: 30px;">
-          <h3 style="font-weight: 600; font-size: 18px; margin-bottom: 12px;">KPI Reports</h3>
-          <div style="background-color: #f9f6f6; padding: 20px; border-radius: 8px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-              
-              <div style="display: flex; gap: 10px;">
-                <img src="public/images/icons/grid.webp" alt="Grid" style="height: 20px; cursor: pointer;" />
-                <img src="public/images/icons/list-ic.png" alt="List" style="height: 20px; cursor: pointer;" />
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
-                  <span>KPI_FLOAT Towers_1st Feb</span>
-                </div>
-                <span style="font-size: 14px;">150 kb</span>
-              </div>
-              <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
-                  <span>Fortnightly_FLOAT Towers_16th Feb</span>
-                </div>
-                <span style="font-size: 14px;">102 kb</span>
-              </div>
-              <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
-                  <span>Fortnightly_ABC Towers_28th Feb</span>
-                </div>
-                <span style="font-size: 14px;">210 kb</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <h3 style="font-weight: 600; font-size: 18px; margin-bottom: 12px;">KPI Reports</h3>
+  <div style="background-color: #f9f6f6; padding: 20px; border-radius: 8px;">
+    <div id="kpi-links-container" style="display: flex; flex-direction: column; gap: 10px;">
+      <!-- JavaScript will inject links here -->
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   </div>
@@ -229,7 +203,47 @@ window.addEventListener('DOMContentLoaded', () => {
     evaluationSelect.value = "none-market";
     changeIframe(evaluationSelect, "iframe-evaluation");
   }
+  populateKPIReports()
 });
+const kpiReports = [
+  { name: "13_Opulus_Jan'25_KPI", file: "13_Opulus_Jan25_KPI.pdf", size: "150 kb" },
+  { name: "14_Opulus_Feb'25_KPI", file: "14_Opulus_Feb'25_KPI.pdf", size: "102 kb" },
+  { name: "16_Opulus_Apr'25_KPI", file: "16_Opulus_Apr'25_KPI.pdf", size: "210 kb" },
+  { name: "17_Opulus_May'25_KPI", file: "17_Opulus_May'25_KPI.pdf", size: "150 kb" },
+  { name: "18_Opulus_June'25_KPI", file: "18_Opulus_June'25_KPI.pdf", size: "102 kb" },
+  { name: "FNR24_Opulus_31_Dec_24", file: "FNR24_Opulus_31_Dec_24.pdf", size: "210 kb" },
+];
+
+function populateKPIReports() {
+  const container = document.getElementById("kpi-links-container");
+  if (!container) return;
+
+  kpiReports.forEach(report => {
+    const link = document.createElement("a");
+    link.href = `public/kpireports/${report.file}`;
+    link.target = "_blank";
+    link.style = `
+      background-color: white;
+      padding: 12px 16px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+    `;
+
+    link.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
+        <span>${report.name}</span>
+      </div>
+      <span style="font-size: 14px;">${report.size}</span>
+    `;
+
+    container.appendChild(link);
+  });
+}
 
     // Show default section
     showSection(document.querySelector('input[name="stage"]:checked').value);
