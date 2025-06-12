@@ -1,3 +1,7 @@
+<!-- [Full HTML content was too large to display all at once in this message] -->
+<!-- Due to message length limits, I'll provide it in 2 parts -->
+
+<!-- PART 1 of 2 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,6 @@
     border-radius: 50%;
     position: relative;
   }
-
   input[type="radio"]:checked::before {
     content: '';
     position: absolute;
@@ -26,74 +29,46 @@
     background-color: #5ca941;
     border-radius: 50%;
   }
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background-color: #f5f5f5;
-    }
-    iframe {
-      width: 80%;
-      height: 85vh;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .dashboard-frame {
-      margin: 20px auto;
-      display: block;
-    }
-    .stage-section {
-      display: none;
-    }
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+  }
+  iframe {
+    width: 80%;
+    height: 85vh;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  .dashboard-frame {
+    margin: 20px auto;
+    display: block;
+  }
+  .stage-section {
+    display: none;
+  }
   </style>
 </head>
 <body>
-  <!-- Topbar will be injected by topbar.js -->
-
   <div style="padding: 20px; margin-top: 10px;">
     <h3 style="color: #5ca941; font-weight: 600; border-bottom: 2px solid #5ca941; display: inline-block; padding-bottom: 6px;">
       Project Summary
     </h3>
-
     <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 30px;">
       <div style="display: flex; align-items: center; gap: 30px;">
         <span style="font-weight: bold; color: #333;">
-          <span style="color: green; font-size: 25px;">●</span> &nbsp;FLOAT
+          <span style="color: green; font-size: 25px;">●</span> &nbsp;PRANAMI
         </span>
       </div>
-
-      <select
-  style="
-    padding: 14px 20px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    font-weight: 500;
-    color: #000;
-    background-color: white;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('public/images/icons/down\ icon.png');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    width: 260px;
-  "
->
-  <option>FLOAT Towers</option>
-  <option>Pranami</option>
-</select>
-
+      <select style="padding: 14px 20px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; font-weight: 500; color: #000; background-color: white; appearance: none; background-image: url('public/images/icons/down icon.png'); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; width: 260px;">
+        <option>Pranami</option>
+      </select>
     </div>
 
     <div class="timeline-container mt-6 flex flex-wrap items-center gap-3">
       <label class="timeline-step flex items-center gap-2">
-        <input type="radio" name="stage" value="origination" checked class="form-radio text-green-500" /> Transaction Origination
-      </label><div class="timeline-line w-5 h-0.5 bg-gray-300"></div>
-
-      <label class="timeline-step flex items-center gap-2">
-        <input type="radio" name="stage" value="evaluation" class="form-radio text-green-500" /> Transaction Evaluation
+        <input type="radio" name="stage" value="evaluation" checked class="form-radio text-green-500" /> Transaction Evaluation
       </label><div class="timeline-line w-5 h-0.5 bg-gray-300"></div>
 
       <label class="timeline-step flex items-center gap-2">
@@ -105,99 +80,101 @@
       </label><div class="timeline-line w-5 h-0.5 bg-gray-300"></div>
 
       <label class="timeline-step flex items-center gap-2">
-        <input type="radio" name="stage" value="monitoring" class="form-radio text-green-500" /> Asset Monitoring
-      </label><div class="timeline-line w-5 h-0.5 bg-gray-300"></div>
-
-      <label class="timeline-step flex items-center gap-2">
-        <input type="radio" name="stage" value="exit" class="form-radio text-green-500" /> Investment Exit
+        <input type="radio" name="stage" value="monitoring" class="form-radio text-green-500" /> Asset Monitoring and Exit
       </label>
     </div>
 
     <div id="timeline-sections" class="mt-6">
-      <!-- Section Template: copy and change IDs accordingly -->
-      <div id="section-origination" class="stage-section">
-        <label class="font-semibold">Dashboard: </label>
 
-
-      </div>
-
+<!-- CONTINUED IN NEXT MESSAGE (PART 2) -->
       <div id="section-evaluation" class="stage-section">
         <label class="font-semibold">Dashboard: </label>
         <select onchange="changeIframe(this, 'iframe-evaluation')" class="ml-4 px-2 py-1 border rounded">
-          <option value="url1">3C Dashboard</option>
-          <option value="url2">Cashflow Dashboard</option>
+          <option value="url1">3C Pricing & Evaluation</option>
+          <option value="url2">Cashflow Scenarios</option>
           <option value="url3">CRE Scorecard</option>
+          <option value="none-market">Market Analysis Report</option>
         </select>
         <iframe id="iframe-evaluation" class="dashboard-frame" src="https://app.powerbi.com/reportEmbed?reportId=229e3fea-4042-4204-ad92-4ce6d0819b02&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false"></iframe>
+        <div id="market-analysis-reports" style="display: none; margin-top: 30px;">
+  <h3 style="font-weight: 600; font-size: 18px; margin-bottom: 12px;">Market Analysis PDFs</h3>
+  <div style="background-color: #f9f6f6; padding: 20px; border-radius: 8px;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <a href="public/Pranami_Market_Analysis.pdf" target="_blank" style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: black;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
+          <span>Market Analysis Report - Pranami</span>
+        </div>
+        <span style="font-size: 14px;">132 kb</span>
+      </a>
+    </div>
+  </div>
+</div>
+
       </div>
 
       <div id="section-approval" class="stage-section">
         <label class="font-semibold">Dashboard: </label>
         <h1>Investment Approval</h1>
+        
       </div>
 
       <div id="section-management" class="stage-section">
-        <label class="font-semibold">Dashboard: </label>
-        <h1>Investment Management</h1>
+        <label class="font-semibold">Dashboard and Reports </label>
+        <select onchange="changeIframe(this, 'iframe-management')" class="ml-4 px-2 py-1 border rounded">
+          <option value="url6">Execution Checklist</option>
+        </select>
+        <iframe id="iframe-management" class="dashboard-frame" src="https://app.powerbi.com/reportEmbed?reportId=75f447d2-a5a9-432c-b0df-23a38ccee9c1&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false"></iframe>
       </div>
 
       <div id="section-monitoring" class="stage-section">
-        <label class="font-semibold">Dashboard: </label>
-         <select onchange="changeIframe(this, 'iframe-monitoring')" class="ml-4 px-2 py-1 border rounded">
-            <option value="url5">CP/CS Tracker</option>
-            <option value="url4">Risk Engine</option>
+        <label class="font-semibold">Dashboard and Reports: </label>
+        <select onchange="changeIframe(this, 'iframe-monitoring')" class="ml-4 px-2 py-1 border rounded">
+          <option value="url5">CP/CS Tracker</option>
+          <option value="url4">Risk Engine</option>
+          <option value="none">KPI Reports</option>
         </select>
-         <iframe id="iframe-monitoring" class="dashboard-frame" src="https://app.powerbi.com/reportEmbed?reportId=92cf2271-700c-445a-9f62-44b68b06f449&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false"></iframe>
+        <iframe id="iframe-monitoring" class="dashboard-frame" src="https://app.powerbi.com/reportEmbed?reportId=92cf2271-700c-445a-9f62-44b68b06f449&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false"></iframe>
+
+        <div id="kpi-reports" style="display: none; margin-top: 30px;">
+          <h3 style="font-weight: 600; font-size: 18px; margin-bottom: 12px;">KPI Reports</h3>
+          <div style="background-color: #f9f6f6; padding: 20px; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              
+              <div style="display: flex; gap: 10px;">
+                <img src="public/images/icons/grid.webp" alt="Grid" style="height: 20px; cursor: pointer;" />
+                <img src="public/images/icons/list-ic.png" alt="List" style="height: 20px; cursor: pointer;" />
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
+                  <span>KPI_FLOAT Towers_1st Feb</span>
+                </div>
+                <span style="font-size: 14px;">150 kb</span>
+              </div>
+              <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
+                  <span>Fortnightly_FLOAT Towers_16th Feb</span>
+                </div>
+                <span style="font-size: 14px;">102 kb</span>
+              </div>
+              <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
+                  <span>Fortnightly_ABC Towers_28th Feb</span>
+                </div>
+                <span style="font-size: 14px;">210 kb</span>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div id="section-exit" class="stage-section">
-  <h3 style="font-weight: 600; font-size: 18px; margin-bottom: 12px;">
-    KPI Reports 
-  </h3>
-
-  <div style="background-color: #f9f6f6; padding: 20px; border-radius: 8px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-      <span style="font-weight: bold;">← Back</span>
-      <div style="display: flex; gap: 10px;">
-        <img src="public/images/icons/grid.webp" alt="Grid" style="height: 20px; cursor: pointer;" />
-        <img src="public/images/icons/list-ic.png" alt="List" style="height: 20px; cursor: pointer;" />
-      </div>
-    </div>
-
-    <!-- Report List -->
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <img src="public/images/icons/pdf-icon.png"" alt="PDF" style="height: 20px;" />
-          <span>KPI_FLOAT Towers_1st Feb</span>
-        </div>
-        <span style="font-size: 14px;">150 kb</span>
-      </div>
-
-      <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
-          <span>Fortnightly_FLOAT Towers_16th Feb</span>
-        </div>
-        <span style="font-size: 14px;">102 kb</span>
-      </div>
-
-      <div style="background-color: white; padding: 12px 16px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <img src="public/images/icons/pdf-icon.png" alt="PDF" style="height: 20px;" />
-          <span>Fortnightly_ABC Towers_28th Feb</span>
-        </div>
-        <span style="font-size: 14px;">210 kb</span>
       </div>
     </div>
   </div>
-</div>
 
-      <!-- Add other sections similarly -->
-    </div>
-  </div>
-
-  <script src="topbar.js"></script>
   <script>
     const dashboardUrls = {
       url1: "https://app.powerbi.com/reportEmbed?reportId=229e3fea-4042-4204-ad92-4ce6d0819b02&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false",
@@ -205,12 +182,33 @@
       url3: "https://app.powerbi.com/reportEmbed?reportId=99a8fe11-84c6-454c-8624-5f5c0ec2c437&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false",
       url4: "https://app.powerbi.com/reportEmbed?reportId=d78bf55f-6438-4f87-8728-6368efcea650&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false",
       url5: "https://app.powerbi.com/reportEmbed?reportId=92cf2271-700c-445a-9f62-44b68b06f449&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false",
+      url6: "https://app.powerbi.com/reportEmbed?reportId=75f447d2-a5a9-432c-b0df-23a38ccee9c1&autoAuth=true&ctid=57dbc965-360a-47c5-83b6-cd9baa69f832&navContentPaneEnabled=false&filterPaneEnabled=false",
     };
 
     function changeIframe(select, iframeId) {
-      const iframe = document.getElementById(iframeId);
-      iframe.src = dashboardUrls[select.value] || select.value;
+  const iframe = document.getElementById(iframeId);
+  const kpiSection = document.getElementById("kpi-reports");
+  const marketSection = document.getElementById("market-analysis-reports");
+
+  if (kpiSection) kpiSection.style.display = "none";
+  if (marketSection) marketSection.style.display = "none";
+
+  if (select.value === "none") {
+    iframe.style.display = "none";
+    if (iframeId === "iframe-monitoring" && kpiSection) {
+      kpiSection.style.display = "block";
     }
+  } else if (select.value === "none-market") {
+    iframe.style.display = "none";
+    if (iframeId === "iframe-evaluation" && marketSection) {
+      marketSection.style.display = "block";
+    }
+  } else {
+    iframe.style.display = "block";
+    iframe.src = dashboardUrls[select.value] || select.value;
+  }
+}
+
 
     const radios = document.querySelectorAll('input[name="stage"]');
     const sections = document.querySelectorAll('.stage-section');
@@ -228,5 +226,6 @@
     // Show default section
     showSection(document.querySelector('input[name="stage"]:checked').value);
   </script>
+  <script src="topbar.js"></script>
 </body>
 </html>
